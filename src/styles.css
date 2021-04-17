@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #f7f7f7;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #595959;
+    line-height: 1.5;
+    padding-top: 100px;
+    position: relative;
+    width: 100%;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding-left: 11px;
+    padding-right: 11px;
+    position: relative;
+  }
+
+  .site-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
+    padding: 22px;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .site-header.site-header--frontpage {
+    background-color: transparent;
+    border-bottom: none;
+    color: #f7f7f7;
+  }
+
+  .site-logo {
+    border-bottom: none;
+    color: #595959;
+    font-size: 24px;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+  
+  .site-logo .emoji {
+    display: inline-block;
+    font-size: 2em;
+    line-height: 1em;
+    margin-right: 11px;
+    transition: -webkit-transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
+    vertical-align: middle;
+  }
+
+  .site-logo .beta {
+    color: #888;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  a {
+    border-bottom: 1px dotted #709FB3;
+    color: #709FB3;
+    text-decoration: none;
+  }

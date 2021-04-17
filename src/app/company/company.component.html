@@ -1,0 +1,16 @@
+<div *ngIf="companyData">
+  <h1 class="name">{{ companyData.name }}</h1>
+  <p>CVR-nr.: {{ cvr }}</p>
+  <p>Direktion: <span *ngFor="let ceo of companyData.ceo">{{ ceo.name }}, </span></p>
+  <p>Bestyrelse: <span *ngFor="let board of companyData.board">{{ board.name }}, </span></p>
+  <p>Branche: {{ companyData.business_code }}</p>
+  
+  <div id="wrapper">
+    <div id="left">
+      <app-graph-valuation [companyData]="companyData"></app-graph-valuation>
+    </div>
+    <div id="right">
+      <app-graph-investment [companyData]="companyData"></app-graph-investment>
+    </div>
+  </div>
+</div>
