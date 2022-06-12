@@ -211,6 +211,10 @@
             border-bottom: 1px solid #e2e2e2;
             width: 100%;
         }
+
+        &.chart-box--full-width{
+            width: 100%;
+        }
     }
     .chart-box__title{
         padding-left: $spacing;

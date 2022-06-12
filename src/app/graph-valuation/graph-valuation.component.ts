@@ -16,11 +16,12 @@ export class GraphValuationComponent implements OnInit {
     showAllTooltips: true
   };
   public barChartLabels = [];
-  public barChartType = 'bar';
-  public barChartLegend = true;
+  public barChartType = 'line';
+  public barChartLegend = false;
   public barChartData = [{ data: [], label: 'Valuation' }];
 
   ngOnInit(): void {
+    console.log(this.companyData['increases']);
     for (let i = 0; i < this.companyData['increases'].length; i++) {
       if (i == 0) {
         this.barChartData[0].data.push(
@@ -28,10 +29,11 @@ export class GraphValuationComponent implements OnInit {
         );
       } else {
         this.barChartData[0].data.push(
-          Number(this.companyData['increases'][i].valuation)
+          Number(this.companyData['increases'][i].capital)
         );
       }
       this.barChartLabels.push(this.companyData['increases'][i].validFrom);
     }
+    console.log(this.barChartData);
   }
 }
