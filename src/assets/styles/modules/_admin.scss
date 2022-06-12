@@ -1,0 +1,69 @@
+.admin-space{
+    padding-left: $spacing;
+    padding-right: $spacing;
+
+    .page-item{
+        margin: 0 $spacing/4;
+    }
+
+}
+
+.admin_table--investments,
+.admin_table--companies{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    width: 100%;
+    tr{
+        border-bottom: 1px solid #ccc;
+        &:hover{
+            background-color: #f7f7f7;
+        }
+    }
+    th,td{
+        border-right: 1px solid #ccc;
+    }
+    th{
+        padding: 5px;
+        text-align: left;
+    }
+    td{
+        padding: 5px;
+    }
+
+    .investment__company-name{
+        a{
+            display: block;
+        }
+        .investment__companycvr{
+            font-size: 0.75em
+        }
+    }
+
+    .investment__rate,
+    .investment__valuation,
+    .investment__investment,
+    .investment__ownership{
+        text-align: right;
+    }
+    .investment__tweet{
+        text-align: center;
+        button{
+            border: none;
+            background: transparent;
+            &.btn--tweet-this:hover svg{
+                fill: $color-primary;
+            }
+            &.btn--cancel svg{
+                fill: $color-error;
+            }            
+        }
+        span{
+            fill: $color-succes;
+        }
+    }
+}
+
+.company-scrapedata-entry{
+    display: none;
+}

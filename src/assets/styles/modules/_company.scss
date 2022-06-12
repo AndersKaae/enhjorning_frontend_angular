@@ -1,0 +1,602 @@
+.page-header--company{
+    .page-title{
+        padding: 0 $spacing;
+        @include media(palm){
+            font-size: 24px;
+        }
+    }
+    @include media(palm){
+        padding-top: 20px;
+    }
+}
+.company-meta{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing;
+    padding: 0 $spacing;
+
+    @include media(palm){
+        flex-direction: column;   
+    }
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 45%;
+
+        @include media(palm){
+            width: 100%;
+        }
+    }
+    li{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: $spacing/3;
+    }
+    .label{
+        width: 150px;
+    }
+    a{
+        border-bottom: 1px dotted #888;
+        flex: 1;
+        &:hover{
+            border-bottom-style: solid;
+        }
+    }
+    li >*:last-child{
+        flex: 1;
+    }
+}
+
+.company-investments{
+    > div{
+        background-color: #fff;
+        box-shadow: 0 0 15px 5px rgba(0,0,0,.1);
+        padding: $spacing;
+    }
+}
+
+.currency-symbol{
+    font-size: 0.75em;
+}
+
+.info-container{
+    background-color: #fff;
+    box-shadow: 0 0 15px 5px rgba(0,0,0,.1);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing;
+    @include media(palm){
+        flex-wrap: wrap;
+    }
+    .list-box{
+        border-left: 2px solid #e2e2e2;
+        padding: $spacing 0;
+        width: 40%;
+        .timline{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .timline > li{
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            padding: 5px $spacing 5px $spacing*2;
+            position: relative;
+            > span{
+                &:first-child{
+                    width: 44%;
+                }
+                &:last-child{
+                    text-align: right;
+                    width: 56%;
+                }
+            }
+            .investment-child--single__type{
+                color: #888;
+                display: block;
+                font-size: 90%; 
+            }
+            &.valuation-child--multiple{
+                flex-wrap: wrap;
+                .valuation-child--multiple__header{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+                .valuation_children{
+                    font-size: 90%;
+                    list-style: none;
+                    text-align: right;
+                    width: 100%;
+                }
+            }
+            &::before{
+                background-color: lighten( $color-primary, 25 );
+                border-radius: 50%;
+                content: "";
+                display: inline-block;
+                height: 16px;
+                position: absolute;
+                top: 11px;
+                left: $spacing/2;
+                width: 16px;
+            }
+            &:not(:last-child)::after{
+                background-color: lighten( $color-primary, 25 );
+                content: " ";
+                height: 100%;
+                position: absolute;
+                top: 16px;
+                left: 17px;
+                width: 5px;
+            }
+
+        }
+
+        &.list-box--right{
+            border-left: 0;
+            border-right: 2px solid #e2e2e2;
+            @include media(palm){
+                order: 1;
+            }
+        }
+        &.list-box--valuation{
+            
+            .timline-first {
+                &::before{
+                    display: none;
+                }
+                > span:first-child::before{
+                    content: "👶";
+                    display: inline-block;
+                    position: absolute;
+                    left: $spacing/2;
+                }
+            }
+        
+        }
+
+        &.list-box--investments{
+            .timline-first {
+                &::before{
+                    display: none;
+                }
+                > span:first-child::before{
+                    content: "👶";
+                    display: inline-block;
+                    position: absolute;
+                    left: $spacing/2;
+                }
+            }
+
+            .investment-child--multiple{
+                flex-wrap: wrap;
+                .investment-child--multiple__header{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+                .investment_children{
+                    color: #888;
+                    font-size: 90%;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    .investment-child{
+                        display: flex;
+                        justify-content: space-between;
+                        &:last-child{
+                            text-align: right;
+                        }
+                    }
+                }
+
+            }
+
+        }
+        @include media(palm){
+            width: 100%;
+        }
+    }
+
+
+    .chart-box{
+        padding-bottom: $spacing*2.5;
+        padding-top: $spacing;
+        width: 60%;
+        @include media(palm){
+            border-bottom: 1px solid #e2e2e2;
+            width: 100%;
+        }
+    }
+    .chart-box__title{
+        padding-left: $spacing;
+    }
+
+    .chart--area{
+        padding: $spacing
+    }
+
+    .chart-box--investments{
+        .chart--area{
+            padding-top: 0;
+        }
+        .chart-legend{
+            font-size: 0.75em;
+            margin-bottom: 64px;
+            ul{
+                padding-left: 0;
+            }
+            li{
+                display: inline-block;
+                list-style: none;
+                margin-right: $spacing/2;
+            }
+
+            li:before{
+                content: "";
+                display: inline-block;
+                height: 12px;
+                margin-right: 3px;
+                width: 12px;
+            }
+
+            .chart-legend--kontant:before{
+                background-color: #CFE6C3;
+            }
+            .chart-legend--fusion:before{
+                background-color: #94CFC6;
+            }
+            .chart-legend--spaltning:before{
+                background-color: #5EB8CB;
+            }
+            .chart-legend--indskudafbestemmendekapitalpost:before{
+                background-color: #3B9DC4;
+            }
+            .chart-legend--indskudafbestendevirksomhed:before{
+                background-color: #2D66A0;
+            }
+            .chart-legend--indbetaltivrdier:before{
+                background-color: #94CFC6;
+            }
+            .chart-legend--konverteringafgld:before{
+                background-color: #E9BCB8;
+            }
+            .chart-legend--overfrtereserveroverskud:before{
+                background-color: #E9D279;
+            }
+        }
+    }
+
+    .chart{
+        align-items: flex-end;
+        background: repeating-linear-gradient(
+            0deg,
+            #e2e2e2,
+            #e2e2e2 1px,
+            transparent 1px,
+            transparent 50px,
+        );
+        border-bottom: 1px solid #888;
+        border-left: 1px solid #888;
+        border-top: 1px solid #e2e2e2;
+        display: flex;
+        flex-wrap: nowrap;
+        height: 250px;
+        padding-right: $spacing;
+        justify-content: space-between;
+    }
+    .bar{
+        background-color: lighten( $color-primary, 25 );
+        flex-grow: 1;
+        margin: 0 4px;
+        position: relative;
+        &.has-children{
+            background-color: transparent;
+        }
+        &:after{
+            border-left: 1px solid #333;
+            bottom: -5px;
+            content: "";
+            display: block;
+            height: 10px;
+            left: 50%;
+            position: absolute;
+            width: 0;
+        }
+    &.bar--birth{
+        background-color: #CFE6C3;
+    }
+    }
+    .sub-bars{
+        align-items: flex-end;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        .bar{
+            margin: 0;
+            width: 100%;
+        }
+        .bar__number{
+            top:0;
+        }
+    }
+    .increasetype--kontant{
+        background-color: #CFE6C3;
+    }
+    .increasetype--fusion{
+        background-color: #94CFC6;
+    }
+    .increasetype--spaltning{
+        background-color: #5EB8CB;
+    }
+    .increasetype--indskudafbestemmendekapitalpost{
+        background-color: #3B9DC4;
+    }
+    .increasetype--indskudafbestendevirksomhed{
+        background-color: #2D66A0;
+    }
+    .increasetype--indbetaltivrdier{
+        background-color: #94CFC6;
+    }
+    .increasetype--konverteringafgld{
+        background-color: #E9BCB8;
+    }
+    .increasetype--overfrtereserveroverskud{
+        background-color: #E9D279;
+    }
+    .bar__number{
+        font-size: 12px;
+        font-weight: bold;
+        left: 20%;
+        position: absolute;
+        top: -40px;
+        transform: rotate(-45deg);
+        z-index: 1;
+    }
+    .bar__date{
+        font-size: 12px;
+        left: 50%;
+        position: absolute;
+        bottom: -40px;
+        transform: rotate(45deg);
+        z-index: 1;
+    }
+}
+
+.owner-history{
+    @include media(palm){
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+}
+
+
+.company-people{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing;
+    padding: $spacing $spacing*2;
+
+    @include media(palm){
+        flex-direction: column;
+        padding: $spacing;
+    }
+
+    .company-owners{
+        width: 60%;
+        a{
+            border-bottom: none;
+        }
+        @include media(palm){
+            width: 100%;
+        }
+    }
+
+    .current-owners{
+        width: 100%;
+        li{
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 5px;
+            padding: 5px 0;
+            @include media(palm){
+                border-bottom: 1px solid #e2e2e2;
+                margin-bottom: $spacing/2;
+                padding-bottom: 5px;
+            }
+        }
+    }
+    .current-owner{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .owners-timeline-entry{
+        display: flex;
+        padding-bottom: $spacing;
+        &:after {
+            content: "";
+            display: block;
+            background: $color-primary;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: -11px;
+        }
+        &:not(:last-child){
+            border-left: 2px solid $color-primary;
+        }
+    }
+
+    .owners-timeline-entry__date{
+        font-size: 14px;
+        margin-left: 20px;
+        margin-right: 30px;
+        width: 120px;
+    }
+
+    .owners-timeline-entry__owners{
+        flex: 1; 
+    }
+    .company-owner{
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        padding: 5px 0;
+    }
+
+    .company-owner__share{
+        font-family: monospace;
+        text-align: right;
+        width: 140px;
+    }
+
+    .company-boardmembers{
+        width: 35%;
+        li{
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 5px;
+            padding: 5px 0;
+            @include media(palm){
+                border-bottom: 1px solid #e2e2e2;
+                margin-bottom: $spacing/2;
+                padding-bottom: 5px;
+            }
+        }
+
+        @include media(palm){
+            width: 100%;
+        }
+    }
+    ul{
+        list-style: none;
+        padding-left: 0;
+    }
+
+    li{
+        position: relative;
+    }
+    a{
+        &:hover{
+            color: $color-primary;
+        }
+    }
+    &:after{
+        display: none;
+    }
+}
+
+
+.map-outer{
+    position: relative;
+    text-align :right;
+    height: 300px;
+    width: 100%;
+    iframe{
+        width: 100%;
+    }
+}
+.gmap_canvas{
+    overflow: hidden;
+    background: none!important;
+    height: 300px;
+    width: 100%;
+}
+
+.company-owned{
+    margin-bottom: $spacing*2;
+    margin-top: $spacing*2;
+    padding: 0 $spacing*2;
+    @include media(palm){
+        padding: 0;
+        .section-title{
+            padding-left: $spacing;
+            padding-right: $spacing;
+        }
+    }
+}
+
+.company-daughters{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    @include media(palm){
+        border-bottom: 1px solid #e2e2e2;
+        margin-bottom: $spacing/2;
+        padding-bottom: 5px;
+    }
+}
+
+.company-daughter{    
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+    a{
+        border-bottom: none;
+        padding: 5px 0;
+    }
+}
+
+
+.company-fiscal{
+    margin-bottom: $spacing*2;
+    margin-top: $spacing*2;
+    padding: 0 $spacing*2;
+    
+    @include media(palm){
+        padding: 0;
+        .section-title{
+            padding-left: $spacing;
+            padding-right: $spacing;
+        }
+    }
+}
+
+.table--fiscal{
+    thead{
+        @include media(palm){
+            display: none;
+        }
+    }
+    tr{
+        border-bottom: 1px solid #ccc;
+        @include media(palm){
+            bottom-border: none;
+            display: block;
+            padding: $spacing;
+            &:nth-child(odd){
+                background-color: #fff;
+            }
+        }
+    }
+    td:not(:first-child),
+    th:not(:first-child){
+        text-align: right;
+    }
+    th:first-child{
+        text-align: left;
+    }
+
+    td{
+        padding: 5px 0;
+        @include media(palm){
+            display: block;
+            text-align: left !important;
+            &:before{
+                content: attr(data-cell-label);
+                display: inline-block;
+                font-weight: bold;
+                width:  140px;
+            }
+        }
+    }
+
+
+    width: 100%;
+}

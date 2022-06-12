@@ -1,13 +1,130 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Enhjørning.Bot</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<base href="/">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<!--<link rel="manifest" href="/site.webmanifest">-->
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	<body>
+		<header class="site-header">
+		  <a href="/" class="site-logo" title="To the frontpage"><span class="emoji">🦄</span>Enhjørning.bot<span class="beta">beta</span></a>
+		  
+		  <nav class="header-nav">
+		  	<a href="https://twitter.com/enhjorningbot" title="Stay up to date on Twitter" target="_blank" class="follow-the-unicorn">
+		  		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+		  	</a>
+
+            <a href="https://www.linkedin.com/company/52129046" title="Stay up to date on LinkeIn" target="_blank" class="follow-the-unicorn">
+            	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"></path></svg>
+            </a>
+		  	<button role="button" class="btn--site-nav js-toggle-site-nav"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#1040e2"></path><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z"></path></svg></button>
+		  </nav>
+		</header>
+		<nav class="site-nav js-site-nav">
+		    <a href="/">Investments</a>
+		    <a href="/about">About</a>
+		</nav>
+
+		<div class="disclaimer js-disclaimer">
+	        <div class="container">
+	            <h2>Welcome to Enhjorning.bot!</h2>
+
+	            <p>The information here is automatically generated based on a combination data from the Danish Business Authority's API and data from Virk.dk.</p>
+	            <p>This is something we hacked together in our spare time, so yeah... use at you own peril and remember always to check out the underlying data and draw your own conclusions.</p>
+	            <button class="btn--hide-disclaimer js-hide-disclaimer">×</button>
+	        </div>	        
+	    </div>
+
+		<app-root></app-root>
+
+
+		<footer class="site-footer">
+		    <p>Made by <a href="https://twitter.com/oaktoade" title="Follow @oaktoade  on Twitter" target="_blank">@oaktoade</a> &amp; <a href="https://twitter.com/farvig" title="Follow @favig  on Twitter" target="_blank">@ƒarvig</a></p>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			/* Site nav */
+			$('.js-toggle-site-nav').on('click', function () {
+			  $(this).toggleClass('active');
+			  $('.js-site-nav').toggleClass('show');
+			});
+
+
+			/* Disclaimer */
+			var isset_ub_hide_disclaimer = getCookie('ub_hide_disclaimer');
+
+			if (isset_ub_hide_disclaimer == '') {
+			  $('.js-disclaimer').show('fast');
+			}
+
+			$('.js-hide-disclaimer').on('click', function () {
+			  acceptCookie();
+			});
+
+			function acceptCookie() {
+			  setCookie('ub_hide_disclaimer', 'hide', 30);
+			  $('.js-disclaimer').slideUp('fast');
+			}
+
+			function getCookie(w) {
+			  cName = "";
+			  pCOOKIES = new Array();
+			  pCOOKIES = document.cookie.split('; ');
+
+			  for (bb = 0; bb < pCOOKIES.length; bb++) {
+			    NmeVal = new Array();
+			    NmeVal = pCOOKIES[bb].split('=');
+
+			    if (NmeVal[0] == w) {
+			      cName = unescape(NmeVal[1]);
+			    }
+			  }
+
+			  return cName;
+			}
+
+			function setCookie(name, value, expires) {
+			  var today = new Date();
+			  var expr = new Date(today.getTime() + expires * 24 * 60 * 60 * 5000);
+			  document.cookie = "" + name + "=" + value + "; path=/; expires=" + expr.toGMTString();
+			  +";";
+			}
+
+			function clearCookie(d, b, c) {
+			  try {
+			    if (function (h) {
+			      var e = document.cookie.split(";"),
+			          a = "",
+			          f = "",
+			          g = "";
+
+			      for (i = 0; i < e.length; i++) {
+			        a = e[i].split("=");
+			        f = a[0].replace(/^\s+|\s+$/g, "");
+
+			        if (f == h) {
+			          if (a.length > 1) g = unescape(a[1].replace(/^\s+|\s+$/g, ""));
+			          return g;
+			        }
+			      }
+
+			      return null;
+			    }(d)) {
+			      b = b || document.domain;
+			      c = c || "/";
+			      document.cookie = d + "=; expires=" + new Date() + "; domain=" + b + "; path=" + c;
+			    }
+			  } catch (j) {}
+			};
+
+		</script>
+	</body>
 </html>

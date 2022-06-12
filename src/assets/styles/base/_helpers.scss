@@ -1,0 +1,168 @@
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img.aligncenter,
+figure.aligncenter{
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+.alignright {
+  float: right;
+  margin: $spacing $spacing*-2 $spacing $spacing;
+}
+
+.alignleft {
+  float: left;
+  margin: $spacing $spacing $spacing $spacing*-2;
+}
+.alignright,
+.alignleft {
+  @include media(palm){
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.bottom{
+  position: absolute;
+  bottom: 0;
+}
+
+.blured{
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  opacity: .8;
+}
+
+.row {
+  @extend %clearfix;
+  margin-bottom: $spacing;
+  width: 100%;
+}
+
+@each $pos in right, center, left {
+  .align-#{$pos} {
+    text-align: #{$pos};
+  }
+}
+
+.square {
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.rectangle {
+  height: 0;
+  padding-bottom: 48%;
+  padding-bottom: calc(50% - #{22px/2});
+}
+
+
+.embed-container {
+  height: 0;
+  margin-bottom: $spacing;
+  max-width: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+
+  iframe,
+  object,
+  embed {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+%layer-bottom {
+  z-index: 100;
+}
+
+%layer-middle {
+  z-index: 500;
+}
+
+%layer-top {
+  z-index: 1000;
+}
+
+.dummy {
+  background-color: darken($color-dark, 10%);
+  width: 200px;
+  text-align: center;
+
+  &.square,
+  &.rectangle {
+    width: auto;
+  }
+}
+
+@mixin truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+%truncate {
+  @include truncate;
+}
+
+.block {
+  display: block;
+}
+
+.show{
+  display: block !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.background--tinted{
+  background-color: #eeeeee;
+}

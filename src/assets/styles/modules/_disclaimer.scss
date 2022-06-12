@@ -1,0 +1,24 @@
+.disclaimer{
+    background-color: $color-primary;
+    color: $color-light;
+    display: none;
+    margin-bottom: $spacing;
+    margin-top: -$spacing;
+    padding: $spacing*1.3 0;
+    position: relative;
+    h2{
+        font-weight: bold;
+    }
+    .btn--hide-disclaimer{
+        background-color: transparent;
+        border: none;
+        font-size: 24px;
+        line-height: 1em;
+        position: absolute;
+        right: $spacing;
+        top: $spacing;
+        &:hover{
+            background-color: rgba(255,255,255,.2);
+        }
+    }
+}

@@ -1,11 +1,24 @@
-<div>
-    <div style="display: block">
-      <canvas baseChart
-              [datasets]="barChartData"
-              [labels]="barChartLabels"
-              [options]="barChartOptions"
-              [legend]="barChartLegend"
-              [chartType]="barChartType">
-      </canvas>
-    </div>
+<section class="container">
+  <div class="info-container">
+      <div class="list-box list-box--investments list-box--right">
+        <ul class="timline">
+          <li class="valuation-child">
+            <span>2021-07-20</span>
+            <span><span class="currency-symbol">DKK</span> 65,659</span>
+          </li>
+        </ul>
+      </div>
+      <div class="chart-box chart-box--investments">
+          <h2 class="chart-box__title">Investments</h2>
+          <div id="investment-history" class="chart--area">
+            <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+            </canvas>
+          </div>
+      </div>
   </div>
+</section>

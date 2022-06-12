@@ -1,16 +1,82 @@
 <div *ngIf="companyData">
-  <h1 class="name">{{ companyData.name }}</h1>
-  <p>CVR-nr.: {{ cvr }}</p>
-  <p>Direktion: <span *ngFor="let ceo of companyData.ceo">{{ ceo.name }}, </span></p>
-  <p>Bestyrelse: <span *ngFor="let board of companyData.board">{{ board.name }}, </span></p>
-  <p>Branche: {{ companyData.business_code }}</p>
+  <header class="page-header page-header--company">
+      <div class="container">
+          <h1 class="page-title">{{ companyData.name }}</h1>
+          <div class="company-meta">
+              <ul>
+                <li class="company-cvr">
+                    <span class="label">CVR-no:</span>
+                    <span><a href="https://datacvr.virk.dk/data/visenhed?enhedstype=virksomhed&id={{ companyData.cvr }}" target="_blank" title="Besøg på virk.dk">{{ companyData.cvr }}</a></span>
+                </li>
+                <li class="company-year">
+                    <span class="label">Founded:</span>
+                    <span>TODO</span>
+                </li>
+                <li class="company-area">
+                    <span class="label">Industry:</span>
+                    <span>{{ companyData.businessCode }}</span>
+                </li>
+                <li class="company-website">
+                    <span class="label">Website:</span>
+                    <span>
+                      <a href="https://{{ companyData.website}}" title="See more on virk.dk" target="_blank" class="company-website">{{ companyData.website}}</a>
+                    </span>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                    <span class="label">Direction:</span>
+                    <span>
+                      <span *ngFor="let ceo of companyData.ceo">
+                        {{ ceo.name }} ({{ ceo.role }})
+                      </span>
+                    </span>
+                </li>
+                <li class="company-cvr">
+                  <span class="label">Employees:</span>
+                  <span>TODO</span>
+                </li>
+              </ul>
+          </div>
+      </div>
+  </header>
   
-  <div id="wrapper">
-    <div id="left">
-      <app-graph-valuation [companyData]="companyData"></app-graph-valuation>
+  <section>
+    <app-graph-valuation [companyData]="companyData"></app-graph-valuation>
+  </section>
+  
+  <section>
+    <app-graph-investment [companyData]="companyData"></app-graph-investment>
+  </section>  
+
+  <section class="container company-people">
+    <div class="company-owners">
+    <h2>Owners</h2>
+    <ul class="current-owners">
+      <li *ngFor="let owner of companyData.owners" class="current-owner">
+        <span>{{ owner.name }}</span>
+        <span class="company-owner__share">{{ owner.values[0].ownerPercentage*100 }}%</span>
+      </li>
+    </ul>
     </div>
-    <div id="right">
-      <app-graph-investment [companyData]="companyData"></app-graph-investment>
+    
+    <div class="company-boardmembers">
+      <h2>Boardmembers</h2>
+      <ul>
+        <li *ngFor="let boardMember of companyData.boardMembers">
+          <span>{{ boardMember.name }}</span>
+          <span *ngIf="boardMember.role != 'BESTYRELSESMEDLEM'"> ({{ boardMember.role }})</span>
+        </li>
+      </ul>
     </div>
-  </div>
+  </section>
+
+  <section class="company-location">
+    <div class="todo">Add company zip TODO</div>
+      <div class="map-outer">
+        <div class="gmap_canvas">
+          <iframe width="1200" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=København V&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+      </div>
+  </section>
 </div>

@@ -1,0 +1,149 @@
+//
+// Let's add some sensible defaults.
+// ---------------------------------------------------
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+*:after,
+*:before,
+button,
+input,
+textarea {
+  -webkit-font-smoothing: antialiased; // Anti-Aliasing on Chrome/Safari mac.
+}
+
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  color: $color-font-base;
+  line-height: 1.5;
+  padding-top: 100px;
+  position: relative;
+  width: 100%;
+  @include media(palm){
+      padding-top: 180px;
+  }
+}
+
+
+.container {
+  @extend %clearfix;
+  margin: 0 auto;
+  max-width: $max-page-width;
+  padding-left: $spacing/2;
+  padding-right: $spacing/2;
+  position: relative;
+  @include media(lap-and-up) {
+    padding-left: $spacing;
+    padding-right: $spacing;
+  }
+  &.container--full-width{
+    max-width: 100%;
+  }
+}
+
+img{
+  font-family: $font-family-base;
+  font-weight: 300;
+  height: auto;
+  max-width: 100%;  
+  position: relative;
+  text-align: center;
+}
+
+img:before {
+  background-color: #fff;
+  content: "We're sorry, the image is broken :(";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+
+hgroup,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
+table,
+fieldset,
+figure,
+pre,
+hr {
+  margin-bottom: $spacing;
+  margin-top: 0;
+}
+
+hr{
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  border: 0;
+  height: 1px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+// Remove Link styling.
+a {
+  border-bottom: 1px dotted $color-primary;
+  color: $color-primary;
+  text-decoration: none;
+  &:active,
+  &:focus{
+    outline: none;
+  }
+  &:hover{
+    border-bottom-style: solid;
+  }
+}
+
+
+// Add proper link styling with this, when outside e.g. a content area
+.link {
+  border-bottom: 1px dotted $color-primary;
+  color: $color-primary;
+  transition: 
+    background-color $time-fast,
+    color $time-fast;
+
+  &:visited {
+    border-bottom-color: $color-primary;
+    color: $color-primary;
+  }
+
+  &:hover {
+    border-bottom-style: solid;
+  }
+}
+
+// Use this to define an area where we need proper link styles, e.g content area or footer.
+.has-link-style {
+  a {
+    @extend .link;
+  }
+}
+

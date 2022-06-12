@@ -1,0 +1,17 @@
+.notification{
+    background-color: #fff;
+    border: 2px solid #888;
+    box-shadow: 0 0 15px 5px rgba(0,0,0,.05);
+    margin-bottom: $spacing;
+    padding: $spacing;
+
+    &.notification--danger{
+        background-color: lighten($color-error, 20);
+        border-color: $color-error;
+        color: $color-light;
+    }
+
+    .notification__title{
+        font-weight: bold;
+    }
+}

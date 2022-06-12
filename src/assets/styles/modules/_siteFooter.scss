@@ -1,0 +1,22 @@
+.site-footer {
+    background: #337592;
+    background: linear-gradient(
+		135deg,
+		#337592 0%,
+		#7089ca 44%,
+		#709fb3 100%
+	);
+    color: #f7f7f7;
+    margin-top: 44px;
+    padding: $spacing*3 0 $spacing*4;
+    text-align: center;
+
+    p{
+    	max-width: 100%;
+    }
+
+    a{
+    	color: $color-light;
+    }
+
+}

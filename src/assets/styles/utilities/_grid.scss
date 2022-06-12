@@ -1,0 +1,128 @@
+
+// How many columns should this grid have?
+$grid-columns-total: 12 !default;
+
+// Breakpoints
+$palm-small:         321px !default;
+$lap-start:          681px !default;
+$desk-start:         960px !default;
+$desk-wide-start:    1200px !default;
+$ultra-wide:         1600px !default;
+$palm-end:           ($lap-start - 1px) !default;
+$lap-end:            ($desk-start - 1px) !default;
+$desk-end:           ($desk-wide-start - 1px) !default;
+
+// Breakpoint Suffixes. The Grid will be generated from this array.
+$breakpoints:        'palm', 'lap', 'lap-and-up', 'portable', 'desk', 'desk-wide', 'ultra-wide' !default;
+
+// Base Variables
+$transitions:        true !default;
+$spacing:            22px !default;
+
+@mixin media($media) {
+  @if $media == 'palm-small' {
+    @media only screen and (max-width:$palm-small) { @content; }
+  }
+
+  @if $media == 'palm' {
+    @media only screen and (max-width:$palm-end) { @content; }
+  }
+
+  @if $media == 'lap' {
+    @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
+  }
+
+  @if $media == 'lap-and-up' {
+    @media only screen and (min-width:$lap-start) { @content; }
+  }
+
+  @if $media == 'portable' {
+    @media only screen and (max-width:$lap-end) { @content; }
+  }
+
+  @if $media == 'desk'{
+    @media only screen and (min-width:$desk-start) { @content; }
+  }
+
+  @if $media == 'desk-wide'{
+    @media only screen and (min-width: $desk-wide-start) { @content; }
+  }
+
+  @if $media == 'below-desk-wide'{
+    @media only screen and (max-width: $desk-wide-start) { @content; }
+  }
+
+  @if $media == 'ultra-wide'{
+    @media only screen and (min-width: $ultra-wide) { @content; }
+  }
+}
+
+@mixin grid-generate($namespace: '') {
+  @for $i from 1 through $grid-columns-total {
+    .size-#{$i}#{$namespace} {
+      width: ($i / $grid-columns-total) * 100%;
+    }
+  }
+
+  .clear#{$namespace} {
+    clear: both;
+  }
+}
+
+// Generate Grid without suffix.
+@include grid-generate();
+
+// Generate Grid with all the breakpoint suffix
+@each $breakpoint in $breakpoints {
+  @include media($breakpoint) {
+    @include grid-generate('--#{$breakpoint}');
+  }
+}
+
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+%clearfix {
+  @include clearfix;
+}
+
+.grid {
+  @extend %clearfix;
+  float: left;
+  padding-left: $spacing/2;
+  padding-right: $spacing/2;
+  position: relative;
+  @if $transitions == true {
+    transition: .3s width;
+  }
+}
+
+.grid--last {
+  @extend %clearfix;
+  float: right;
+}
+
+.grid-group {
+  @extend %clearfix;
+  margin-left: -$spacing/2;
+  margin-right: -$spacing/2;
+  float: none;
+  position: relative;
+}
+
+.grid-group--reverse {
+  > .grid {
+    float: right;
+  }
+}
+
+@include media(palm){
+  .grid-hide--palm{
+    display: none !important;
+  }
+}

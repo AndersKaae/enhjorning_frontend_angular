@@ -1,0 +1,218 @@
+.investments{
+
+    .title-investment-date{
+        font-size: 24px;
+        font-weight: bold;
+        padding: $spacing 0;
+    }
+
+    .investment{
+        background-color: #fff;
+        border: 1px solid #ddd;
+        //box-shadow: 0 0 12px 5px rgba(0,0,0,.05);
+        margin-bottom: $spacing;
+        position: relative;
+        z-index: 2;
+        &:hover{
+            //box-shadow: 0 0 12px 5px rgba(0,0,0,.12);
+        }
+    }
+
+    .investment__child{
+        background: #fff;
+        border: 1px solid #ddd;
+        border-top: none;
+        //box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.05);
+        margin-bottom: $spacing;
+        margin-top: -22px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .investment-header{
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        padding: $spacing $spacing $spacing/2;
+        @include media(palm){
+            flex-direction: column;
+        }
+    }
+
+    .investment__company-name{
+        @include media(palm){
+            border-bottom: 1px solid #e2e2e2;
+        }
+    }
+    .investment__company__name{
+        font-size: 1.6em;
+        line-height: 1.1em;
+        margin-bottom: 5px;
+        max-width: 70%;
+        a{
+            border-bottom: none;
+            span{
+                color: #888;
+                font-size: 14px;
+                @include media(palm){
+                    display: none;
+                }
+            }
+            &:hover{
+                color: $color-dark;
+            }
+            &:after{
+                content:"➝";
+                display: inline-block;
+                margin-left: 5px;
+            }
+        }
+        @include media(palm){
+            font-size: 1.3em;
+            max-width: 100%;
+        }
+    }
+    .investment__company-cvr{
+        display: inline-block;
+        a{
+            color: $color-dark;
+            border-bottom: 1px dotted $color-dark;
+        }
+        a:hover{
+            border-bottom: 1px solid $color-dark;
+        }
+    }
+    
+    .investment__company__website{
+        border-bottom: 1px dotted $color-dark;
+        color: $color-dark;
+        &:hover{
+            border-bottom: 1px solid $color-dark;
+        }
+    }
+
+    .investment__content{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: $spacing*1.5;
+        @include media(palm){
+            flex-direction: column
+        }
+    }
+
+    .investment__investment,
+    .investment__ownership,
+    .investment__valuation{
+        width: 33.3%;
+        @include media(palm){
+            width: 100%;
+        }
+    }
+    .investment_date{
+        border-bottom: 1px solid #ddd;
+        color: #888;
+        font-size: 0.75em;
+        padding: $spacing/2 $spacing;
+    }
+
+    .investment-box-title{
+        font-weight: normal;
+        margin-bottom: $spacing/2;
+    }
+
+
+    .investment__no,
+    .investment__ownership__no,
+    .investment__valuation_no{
+        color: #709FB3;
+        font-size: 1.2em;
+        font-weight: bold
+    }
+
+    .investment__investment{
+        border-left: 2px solid #f7f7f7;
+        padding: $spacing $spacing 0;
+        @include media(palm){
+            border-bottom: 1px solid #ddd;
+            padding: $spacing;
+        }
+    }
+
+    .investment__rate{
+        color: #888;
+        font-size: 12px;
+    }
+    .investment__ownership{
+        padding: $spacing $spacing 0;
+        text-align: center;
+        @include media(palm){
+            border-bottom: 1px solid #ddd;
+            padding: $spacing;
+            text-align: left;
+        }
+    }
+    
+
+    .share-per,
+    .investment__currency{
+        color: #888;
+        font-size: 14px;
+        padding-right: 4px;
+        @include media(palm){
+            font-size: 14px;
+            margin-right: .5em;
+        }
+    }
+    .investment__valuation{
+        padding: $spacing $spacing 0;
+        text-align: right;
+
+        @include media(palm){
+            font-size: 1.2em;
+            text-align: left;
+        }        
+    }
+    .investment-breakdown{
+        border-top: 1px solid #ddd;
+        padding-top: $spacing/2;
+    }
+    .investment-breakdown__title{
+        margin: 0;
+        padding: 0 $spacing $spacing/2;
+    }
+    .investment-breakdown__row{
+        display: flex;
+        justify-content: space-between;
+        > div{
+            padding: 0 $spacing $spacing/2;
+            width: 33%;
+            &:nth-child(2){
+                text-align: center;
+            }
+            &:last-child{
+                text-align: right;
+            }
+        }
+
+        @include media(palm){
+            border-bottom: 1px solid #ddd;
+            flex-direction: column;
+            > div{
+                text-align: left !important;
+                width: 100%;
+            }
+        }
+
+    }
+    .investment-sharebar{
+        position: absolute;
+        right: -29px;
+        top: 11px;
+        @include media(palm){
+            right: 11px;
+        }
+    }
+    .share-btn{
+        border-bottom: none
+    }
+}

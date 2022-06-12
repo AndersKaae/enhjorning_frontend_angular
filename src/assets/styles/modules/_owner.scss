@@ -1,0 +1,118 @@
+.table--owner-investments{
+    
+    width: 100%;
+
+    tr{
+        border-bottom: 1px dotted #999;
+    }
+
+    td{
+        padding: 5px 0;
+    }
+
+    .owner-investment__name{
+        text-align: left;
+    }
+    .owner-investment__stake,
+    .owner-investment__valuation{
+        text-align: right;
+    }
+
+    .owner-investment__valuation:after{
+        content: attr(data-currency);
+        font-size: .75em;
+        margin-left: .5em;
+    }
+
+    a{
+        &:hover{
+            color: $color-primary;
+        }
+    }
+
+}
+
+.top-investors{
+    counter-reset: count-top-investors;
+}
+
+.top-investor{
+    border-bottom: 1px dotted #ddd;
+    padding: $spacing/2 0;
+    display: flex;
+    justify-content: space-between;
+    counter-increment: count-top-investors;
+    padding-left: 2em;
+    &:before{
+        color: $color-primary;
+        content: counter(count-top-investors) '.';
+        display: block;
+        font-weight: bold;
+        position: absolute;
+        left: 0em;
+        text-align: right;
+        width: 2em;
+    }
+    @include media(palm){
+        flex-direction: column;
+        
+    }
+    .top-investor__no{
+        @include media(palm){
+            font-weight: bold;
+        }
+    }
+}
+
+.tablesorter-header{
+    padding-right: 20px;
+    position: relative;
+    &:before, &:after{
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 0;
+    }
+    &:before{
+        bottom:5px;
+        border-top: 5px solid $color-dark;
+    }
+    &:after{
+        top: 5px;
+        border-bottom: 5px solid $color-dark;
+    }
+    &.tablesorter-headerAsc{
+        &:before{
+            display: none;
+        }
+
+        &:after{
+            border-bottom-color: $color-primary
+        }
+    }
+    &.tablesorter-headerDesc{
+        &:before{
+            border-top-color: $color-primary
+        }
+
+        &:after{
+            display: none;
+        }
+    }
+
+    &:hover{
+        &:before{
+            border-top-color: $color-primary
+        }
+
+        &:after{
+            border-bottom-color: $color-primary
+        }
+    }
+
+    &:focus{
+        outline: none;
+    }
+}

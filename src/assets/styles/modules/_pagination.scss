@@ -1,0 +1,27 @@
+.pagination{
+    display: block;
+    list-style: none;
+    margin: 0 0 $spacing;
+    padding: 0;
+    text-align: center;
+    .page-item{
+        display: inline-block;
+        margin: 0 $spacing;
+        &.disabled{
+            opacity: 0;
+        }
+        a{
+            border: 1px solid $color-dark;
+            border-radius: 50px;
+            box-shadow: 0 0 15px 3px rgba(0,0,0,.2);
+            display: block;
+            padding: .3em 1em;
+            &:hover{
+                border-color: lighten($color-primary, 10);
+                background-color: lighten($color-primary, 10);
+                box-shadow: 0 0 15px 3px rgba(0,0,0,.4);
+                color: $color-light;
+            }
+        }
+    }
+}

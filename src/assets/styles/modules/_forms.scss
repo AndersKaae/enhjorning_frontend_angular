@@ -1,0 +1,66 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="password"],
+textarea{
+    background-color: #efefef;
+    border: none;
+    padding: $spacing;
+    width: 100%;
+    &:focus{
+        outline: none;
+    }
+}
+
+textarea{
+    resize: vertical;
+}
+
+label{
+    .required{
+        color: $color-error;
+        font-size: 16px;
+    }
+}
+
+.form--filters{
+    input[type="text"],
+    input[type="search"]{
+        padding: $spacing/2;
+    }
+    select{
+        appearance: none;
+        background-color: #efefef;
+        border: none;
+        padding: $spacing/2;
+        width: 100%;
+    }
+
+    display: flex;
+    flex-wrap: nowrap;
+    .input-container{
+        padding: $spacing/2;
+    }
+
+    .submit-container{
+        align-items: flex-end;
+        display: flex;
+        padding: $spacing/2;
+    }
+
+}
+form{
+    .btn{
+        border: none;
+        background-color: $color-primary;
+        color: $color-light;
+        display: inline-block;
+        font-weight: bold;
+        margin-right: $spacing;
+        padding: $spacing/2 $spacing;
+        &:hover{
+            background-color: darken( $color-primary, 20 );
+        }
+    }
+}
